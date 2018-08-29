@@ -15,5 +15,5 @@ Sequencing reads are available from http://doi.org/10.5281/zenodo.1405173.
 
 ## Contact
 
-Karel Brinda <kbrinda@hsph.harvard.edu>
+Karel Brinda \<kbrinda@hsph.harvard.edu\>
 
