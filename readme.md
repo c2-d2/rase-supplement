@@ -1,7 +1,7 @@
 # RASE supplement
 
-This repository contains supplementary information to the following manuscript:
-*Lineage calling can identify antibiotic resistant clones within minutes*
+This repository contains supplementary information to the manuscript
+[Lineage calling can identify antibiotic resistant clones within minutes](https://www.biorxiv.org/content/early/2018/08/29/403204).
 
 ## Structure
 
