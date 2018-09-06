@@ -15,6 +15,15 @@ Other directories will appear in the next days.
 
 Sequencing reads are available from http://doi.org/10.5281/zenodo.1405173.
 
+
+## Related repositories
+
+* [RASE DB](http://github.com/c2-d2/rase-db). Code for constructing RASE databases and the released databases.
+* [RASE pipeline](http://github.com/c2-d2/rase-pipeline). RASE prediction pipeline.
+* [ProPhyle](http://prophyle.github.io). A highly accurate and resource-frugal DNA sequence classifier used by RASE.
+* [Prophex](http://github.com/prophyle/prophex). A k-mer index based on the Burrows-Wheeler Transform, used by ProPhyle.
+
+
 ## Citing RASE
 
 Karel Brinda, Alanna Callendrello, Lauren Cowley, Themoula Charalampous, Robyn
