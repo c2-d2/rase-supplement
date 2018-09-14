@@ -35,27 +35,30 @@ greatly accelerate diagnoses of resistant infections.
   plots (rank plots for `t=1m, 5m, last m` and timeline plot for each
   experiment), and Snakemake benchmarks (time and memory used for individual
   steps of the pipeline).
+* **Constructed RASE databases**: The databases are provided as [releases in
+  the RASE-DB repository](https://github.com/c2-d2/rase-db/releases).
 * **Tables**: Tables and supplementary tables are located in the directory
   [tables](tables).
-* **Sequencing data** are available from [http://doi.org/10.5281/zenodo.1405173](http://doi.org/10.5281/zenodo.1405173).
+* **Sequencing data** are available from
+  [http://doi.org/10.5281/zenodo.1405173](http://doi.org/10.5281/zenodo.1405173).
+  For the metagenomic experiments, only the filtered datasets (i.e., after
+  removing the remaining human reads in silico) were made publicly available.
 * **Lab notebooks** (sequencing of isolates (SP01-SP06) and additional MIC
   testing) are available from the directory [lab-notebooks](lab-notebooks).
 
 ## Code
 
 * [RASE-DB](http://github.com/c2-d2/rase-db). Code for constructing RASE
-  databases and the released databases.
+  databases.
 * [RASE-predict](http://github.com/c2-d2/rase-predict). RASE prediction
   pipeline.
 
 
-## Other related repositories
+## Other links
 
 * [ProPhyle](http://prophyle.github.io). DNA sequence classifier used by RASE.
 * [Prophex](http://github.com/prophyle/prophex). k-mer index based on the
   Burrows-Wheeler Transform, used by ProPhyle.
-
-
 
 
 ## License
@@ -65,5 +68,5 @@ greatly accelerate diagnoses of resistant infections.
 
 ## Contact
 
-Karel Brinda \<kbrinda@hsph.harvard.edu\>
+[Karel Brinda](https://scholar.harvard.edu/brinda) \<kbrinda@hsph.harvard.edu\>
 
