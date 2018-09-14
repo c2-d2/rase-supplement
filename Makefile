@@ -6,7 +6,11 @@ SHELL=/usr/bin/env bash -eo pipefail
 
 .SUFFIXES:
 
-all:
+all: rase.png
+
+rase.png: figures/figure_1.pdf
+	convert -density 300 "$<" -resize 25% "$@"
+
 
 readme: ## Generate a HTML version of the README
 	 markdown_py readme.md > readme.html

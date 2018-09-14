@@ -26,6 +26,9 @@ strain in 5 minutes, even from a complex metagenomic sample. This flexible
 approach has wide application to pathogen surveillance and may be used to
 greatly accelerate diagnoses of resistant infections.
 
+![Overview of the RASE method](rase.png)
+
+
 ## Data
 
 * **Results of the RASE pipeline** for all experiments from the paper
@@ -39,6 +42,8 @@ greatly accelerate diagnoses of resistant infections.
   the RASE-DB repository](https://github.com/c2-d2/rase-db/releases).
 * **Tables**: Tables and supplementary tables are located in the directory
   [tables](tables).
+* **Figures**: Figures and supplementary figures are located in the directory
+  [figures](figures).
 * **Sequencing data** are available from
   [http://doi.org/10.5281/zenodo.1405173](http://doi.org/10.5281/zenodo.1405173).
   For the metagenomic experiments, only the filtered datasets (i.e., after
