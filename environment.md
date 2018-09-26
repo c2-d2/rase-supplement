@@ -10,13 +10,13 @@ multiple Unix and OS X machines, including clusters and virtual machines.
 * [ProPhyle](http://prophyle.github.io)
 * [ETE 3](http://etetoolkit.org/)
 * [PySAM](https://github.com/pysam-developers/pysam)
-* [GNU Make](https://www.gnu.org/software/make/) or a compatible Make
+* [GNU Make](https://www.gnu.org/software/make/) or equivalent
 * [SnakeMake](https://snakemake.readthedocs.io)
 * [SAMtools](http://www.htslib.org/)
 * [GNU parallel](https://www.gnu.org/software/parallel/)
 * [R](https://www.r-project.org/)
 * [R OptParse](https://cran.r-project.org/web/packages/optparse/)
-* [GCC](https://gcc.gnu.org/) or a compatible compiler
+* [GCC 4.8+](https://gcc.gnu.org/) or equivalent
 * [zlib](https://zlib.net/)
 
 
