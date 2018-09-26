@@ -1,4 +1,4 @@
-.PHONY: all help clean cleanall readme view
+.PHONY: all help clean cleanall readme view html
 
 SHELL=/usr/bin/env bash -eo pipefail
 
@@ -11,9 +11,12 @@ all: rase.png
 rase.png: figures/figure_1.pdf
 	convert -density 300 "$<" -resize 25% "$@"
 
+html: $(patsubst %.md,%.html,$(wildcard *.md))
+html: ## Generate HTML versions of all markdown files
 
-readme: ## Generate a HTML version of the README
-	 markdown_py readme.md > readme.html
+%.html: ## Generate a HTML version of the README
+%.html: %.md
+	 markdown_py "$<" > "$@"
 
 view: ## Open README
 	open README.html
