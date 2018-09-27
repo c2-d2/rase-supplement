@@ -11,9 +11,10 @@ multiple Unix and OS X machines, including clusters and virtual machines.
 * [ETE 3](http://etetoolkit.org/)
 * [PySAM](https://github.com/pysam-developers/pysam)
 * [GNU Make](https://www.gnu.org/software/make/) or equivalent
+* [GNU parallel](https://www.gnu.org/software/parallel/)
+* [Ghost Script](https://www.ghostscript.com/)
 * [SnakeMake](https://snakemake.readthedocs.io)
 * [SAMtools](http://www.htslib.org/)
-* [GNU parallel](https://www.gnu.org/software/parallel/)
 * [R](https://www.r-project.org/)
 * [R OptParse](https://cran.r-project.org/web/packages/optparse/)
 * [GCC 4.8+](https://gcc.gnu.org/) or equivalent
@@ -56,7 +57,7 @@ Many of these packages are distributed using standard package systems such as
 [APT](https://wiki.debian.org/Apt).
 
 ```bash
-apt-get install build-essential python3 zlib1g-dev r-base r-cran-optparse
+apt-get install build-essential python3 zlib1g-dev r-base r-cran-optparse ghostscript
 ```
 
 All the Python packages (ProPhyle, PySAM, ETE 3, and Snakemake) can be
