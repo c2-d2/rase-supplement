@@ -26,7 +26,7 @@ strain in 5 minutes, even from a complex metagenomic sample. This flexible
 approach has wide application to pathogen surveillance and may be used to
 greatly accelerate diagnoses of resistant infections.
 
-![Overview of the RASE method](rase.png)
+![Overview of the RASE method](figures/Figure_1.pdf)
 
 
 ## Data
