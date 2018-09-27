@@ -3,10 +3,12 @@
 set -e
 set -o pipefail
 
+
+
 ########################################
 # 1) Add execution flags to all scripts
 #
-find /code -name '*.py' -or -name '*.sh' -or -name '*.R' -or -name 'sort_with_header' | xargs chmod +x
+find /code -name '*.py' -or -name '*.sh' -or -name '*.R' | xargs chmod +x
 
 
 
@@ -22,10 +24,13 @@ tar xvf /data/isolates.tar
 xvfb-run --server-args="-screen 0 1024x768x24 -noreset" \
 make -C /code/rase-db/spneumoniae_sparc # xvfb-run is necessary for plotting using ETE3
 
-#    iii) make and copy plots
+#    iii) make and copy plots and db
 xvfb-run --server-args="-screen 0 1024x768x24 -noreset" \
 make -C /code/rase-db/spneumoniae_sparc/plots
-cp /code/rase-db/spneumoniae_sparc/plots/*.pdf /results/
+mkdir -p /results/db /results/db-plots
+cp /code/rase-db/spneumoniae_sparc/_output/spneumoniae_sparc.k18.tar.gz /results/db/
+cp /code/rase-db/spneumoniae_sparc/_output/spneumoniae_sparc.k18.tsv /results/db/
+cp /code/rase-db/spneumoniae_sparc/plots/*.pdf /results/db-plots/
 
 
 
@@ -35,8 +40,8 @@ cp /code/rase-db/spneumoniae_sparc/plots/*.pdf /results/
 
 #    i) symlink the created database files
 cd /code/rase-predict/database
-ln -s /code/rase-db/spneumoniae_sparc/_output/spneumoniae_sparc.k18.tar.gz
-ln -s /code/rase-db/spneumoniae_sparc/_output/spneumoniae_sparc.k18.tsv
+ln -s /results/db/spneumoniae_sparc.k18.tar.gz
+ln -s /results/db/spneumoniae_sparc.k18.tsv
 
 #    ii) symlink nanopore reads
 cd /code/rase-predict/reads/
@@ -48,6 +53,10 @@ done
 make -C /code/rase-predict # full pipeline
 ##make -C /code/rase-predict test # test pipeline (the smallest experiment only)
 
-#    iv) copy plots
-cp /code/rase-predict/plots/*.pdf /results/
+#    iv) copy plots and prediction outputs
+mkdir -p /results/prediction-timelines /results/prediction-snapshots /results/prediction-tables /results/prediction-benchmarks
+cp /code/rase-predict/plots/*timeline.pdf /results/prediction-timelines/
+cp /code/rase-predict/plots/*snapshots*.pdf /results/prediction-snapshots/
+cp /code/rase-predict/prediction/*.tsv /results/prediction-tables/
+cp /code/rase-predict/benchmarks/*.log /results/prediction-benchmarks/
 
