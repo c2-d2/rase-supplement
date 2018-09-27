@@ -21,7 +21,7 @@ mkdir data/isolates
 		| grep stream \
 		| perl -pe 's/.*href="(.*)".*/\1/g' \
 		> list.txt
-	cat list.txt | parallel -j 6 --gnu "wget {}"
+	cat list.txt | parallel -j 6 --verbose --gnu "wget {}"
 	rm list.txt
 )
 
