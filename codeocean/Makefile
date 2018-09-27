@@ -17,5 +17,5 @@ all: .data.complete .code.complete
 	touch $@
 
 clean: ## Clean
-	rm -fr data/ code/
+	rm -fr data/ code/ .*.complete
 
