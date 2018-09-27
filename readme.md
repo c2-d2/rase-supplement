@@ -1,7 +1,8 @@
 # RASE - Resistance-Associated Sequence Elements
 
-This repository contains data and code for the manuscript
-[Lineage calling can identify antibiotic resistant clones within minutes](https://www.biorxiv.org/content/early/2018/08/29/403204).
+This repository contains data, code, and supplementary information for the
+manuscript [Lineage calling can identify antibiotic resistant clones within
+minutes](https://www.biorxiv.org/content/early/2018/08/29/403204).
 
 ### Citation
 
