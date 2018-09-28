@@ -20,5 +20,5 @@ rm -fr code
 mkdir code
 cp -r "$d"/rase-db code/
 cp -r "$d"/rase-predict code/
-cp run.sh code/
+cp run.sh readme.md ../rase.png ../LICENSE code/
 
