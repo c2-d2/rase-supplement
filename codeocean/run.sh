@@ -16,15 +16,29 @@ find /code -name '*.py' -or -name '*.sh' -or -name '*.R' | xargs chmod +x
 # 2) Construct the main RASE DB
 #
 
-#    i) copy isolates from /data (otherwise they would be downloaded from the internet)
-cd /code/rase-db/spneumoniae_sparc
-tar xvf /data/isolates.tar
+#    i) symlink the db isolates (otherwise they would be downloaded from the internet)
 
-#    ii) run database construction
+(
+    cd /code/rase-db/spneumoniae_sparc/isolates
+    for x in /data/isolates/*.fa; do
+        ln -s "$x"
+    done
+    touch .complete
+)
+
+#    ii) symlink metadata (they are already in /code, but symlinks allow to modify them via /data)
+(
+    cd /code/rase-db/spneumoniae_sparc/published
+    for x in /data/metadata/*; do
+        ln -s "$x"
+    done
+)
+
+#    iii) run database construction
 xvfb-run --server-args="-screen 0 1024x768x24 -noreset" \
 make -C /code/rase-db/spneumoniae_sparc # xvfb-run is necessary for plotting using ETE3
 
-#    iii) make and copy plots and db
+#    iv) make and copy plots and db
 xvfb-run --server-args="-screen 0 1024x768x24 -noreset" \
 make -C /code/rase-db/spneumoniae_sparc/plots
 mkdir -p /results/db /results/db-plots
@@ -45,7 +59,7 @@ ln -s /results/db/spneumoniae_sparc.k18.tsv
 
 #    ii) symlink nanopore reads
 cd /code/rase-predict/reads/
-for x in /data/*.fq; do
+for x in /data/reads/*.fq; do
     ln -s "$x"
 done
 
