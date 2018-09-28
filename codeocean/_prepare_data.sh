@@ -6,12 +6,12 @@ set -u
 
 
 rm -fr data
-mkdir data
 
 # 1) download metadata
 
 (
-	cd data
+	mkdir -p data/metadata
+	cd data/metadata
 	for x in SPARC.core_genes.tree isolates.2013.tsv isolates.2015.tsv; do
 		wget https://raw.githubusercontent.com/c2-d2/rase-db/466bc84318616950cd479c85bd86cb0bc31be321/spneumoniae_sparc/published/$x
 	done
@@ -20,7 +20,7 @@ mkdir data
 
 # 2) create isolates.tar
 
-mkdir data/isolates
+mkdir -p data/isolates
 d=$(mktemp -d)
 (
 	cd "$d"
@@ -30,16 +30,12 @@ d=$(mktemp -d)
 	cd data/isolates
 	"$d"/rase-db/spneumoniae_sparc/isolates/download_sparc1_assemblies.sh
 )
-(
-	cd data
-	tar cvf isolates.tar isolates
-	rm -fr isolates/
-)
 
 
 # 3) download nanopore reads from Zenodo
 (
-	cd data
+	mkdir data/reads
+	cd data/reads
 	curl https://zenodo.org/record/1405173 \
 		| grep stream \
 		| perl -pe 's/.*href="(.*)".*/\1/g' \
