@@ -8,7 +8,7 @@ For more information, see [RASE on Github](https://github.com/c2-d2/rase).
 
 ### Citation
 
-> Brinda K, Callendrello A, Cowley L, Charalampous T, Lee R S, MacFadden D R,
+> Břinda K, Callendrello A, Cowley L, Charalampous T, Lee R S, MacFadden D R,
 > Kucherov G, O'Grady J, Baym M, Hanage W P. **Lineage calling can identify
 > antibiotic resistant clones within minutes.** bioRxiv 403204, 2018.
 > doi:[10.1101/403204](https://doi.org/10.1101/403204)
@@ -52,8 +52,8 @@ removing the remaining human reads in silico) were made publicly available.
   2013](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3725542/bin/NIHMS474991-supplement-2.xlsx),
   [table from 2015](https://www.nature.com/articles/sdata201558/tables/1), and
   the [phylogeny](https://datadryad.org/resource/doi:10.5061/dryad.t55gq/1)).
-* **reads** - [nanopore sequencing reads](https://zenodo.org/record/1405173) of
-  the isolates and metagenomes in the paper
+* **reads** - [nanopore sequencing reads](https://zenodo.org/record/1405173)
+  from the isolates and metagenomes in the paper
 
 ## Running the Code Ocean pipeline
 
@@ -80,5 +80,5 @@ The Results directory (`/results`) is structured in the following way:
 
 ## Contact
 
-[Karel Brinda](https://scholar.harvard.edu/brinda) (kbrinda@hsph.harvard.edu)
+[Karel Břinda](https://scholar.harvard.edu/brinda) (kbrinda@hsph.harvard.edu)
 
