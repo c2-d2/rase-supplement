@@ -30,7 +30,7 @@ find /code -name '*.py' -or -name '*.sh' -or -name '*.R' | xargs chmod +x
 (
     cd /code/rase-db/spneumoniae_sparc/published
     for x in /data/metadata/*; do
-        ln -s "$x"
+        ln -sf "$x"
     done
 )
 
