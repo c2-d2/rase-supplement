@@ -14,6 +14,8 @@ d=$(mktemp -d)
 	make -C rase-predict cleanall
 	rm -fr rase-db/.git
 	rm -fr rase-predict/.git
+
+	find rase-db -name '*.tsv' -exec rm {} \;
 )
 
 rm -fr code

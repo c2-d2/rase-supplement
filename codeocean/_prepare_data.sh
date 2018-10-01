@@ -18,7 +18,7 @@ rm -fr data
 )
 
 
-# 2) create isolates.tar
+# 2) download isolates
 
 mkdir -p data/isolates
 d=$(mktemp -d)
