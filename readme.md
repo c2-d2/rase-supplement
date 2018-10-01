@@ -1,7 +1,10 @@
 # RASE - Resistance-Associated Sequence Elements
 
-This repository contains data and code for the manuscript
-[Lineage calling can identify antibiotic resistant clones within minutes](https://www.biorxiv.org/content/early/2018/08/29/403204).
+This repository contains data, code, and supplementary information for the
+manuscript [Lineage calling can identify antibiotic resistant clones within
+minutes](https://www.biorxiv.org/content/early/2018/08/29/403204). For
+interactive browsing, see laso the associated [CodeOcean
+capsule](https://codeocean.com/2018/10/01/lineage-calling-can-identify-antibiotic-resistant-clones-within-minutes/).
 
 ### Citation
 
@@ -26,7 +29,7 @@ strain in 5 minutes, even from a complex metagenomic sample. This flexible
 approach has wide application to pathogen surveillance and may be used to
 greatly accelerate diagnoses of resistant infections.
 
-![Overview of the RASE method](rase.png)
+[![Overview of the RASE method](rase.png)](figures/Figure_1.pdf)
 
 
 ## Data
