@@ -2,7 +2,9 @@
 
 This repository contains data, code, and supplementary information for the
 manuscript [Lineage calling can identify antibiotic resistant clones within
-minutes](https://www.biorxiv.org/content/early/2018/08/29/403204).
+minutes](https://www.biorxiv.org/content/early/2018/08/29/403204). For
+interactive browsing, see laso the associated [CodeOcean
+capsule](https://codeocean.com/2018/10/01/lineage-calling-can-identify-antibiotic-resistant-clones-within-minutes/).
 
 ### Citation
 
