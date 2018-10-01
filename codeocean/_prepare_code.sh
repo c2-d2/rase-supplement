@@ -16,6 +16,7 @@ d=$(mktemp -d)
 	rm -fr rase-predict/.git
 
 	find rase-db -name '*.tsv' -exec rm {} \;
+	find rase-db -name '*.tree' -exec rm {} \;
 )
 
 rm -fr code
