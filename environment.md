@@ -29,7 +29,7 @@ We recommend to create a separate software environment (here called `rase`):
 
 ```bash
 conda create -n rase \
-	prophyle ete3 pysam snakemake samtools parallel r-optparse
+	prophyle ete3 pysam snakemake-minimal samtools parallel r-optparse
 ```
 
 The environment can then be activated by
