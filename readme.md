@@ -1,33 +1,39 @@
 # RASE - Resistance-Associated Sequence Elements
 
 This repository contains data, code, and supplementary information for the
-manuscript [Lineage calling can identify antibiotic resistant clones within
-minutes](https://www.biorxiv.org/content/early/2018/08/29/403204). For
-interactive browsing, see laso the associated [CodeOcean
-capsule](https://codeocean.com/2018/10/01/lineage-calling-can-identify-antibiotic-resistant-clones-within-minutes/).
+manuscript
+*Brinda K, Callendrello A,  Ma K C,  MacFadden D R, Charalampous T,
+Lee R S, Cowley L, Wadsworth C B, Grad Y H, Kucherov G, O’Grady J, Baym M, and
+Hanage W P*: **Rapid heuristic inference of antibiotic resistance and
+susceptibility by genomic neighbor typing**.
 
+<!--
 ### Citation
 
 > Brinda K, Callendrello A, Cowley L, Charalampous T, Lee R S, MacFadden D R,
 > Kucherov G, O'Grady J, Baym M, Hanage W P. **Lineage calling can identify
 > antibiotic resistant clones within minutes.** bioRxiv 403204, 2018.
 > doi:[10.1101/403204](https://doi.org/10.1101/403204)
+-->
 
 ## Abstract
 
-Surveillance of circulating drug resistant bacteria is essential for healthcare
-providers to deliver effective empiric antibiotic therapy.  However, the
-results of surveillance may not be available on a timescale that is optimal for
-guiding patient treatment. Here we present a method for inferring
-characteristics of an unknown bacterial sample by identifying the presence of
-sequence variation across the genome that is linked to a phenotype of interest,
-in this case drug resistance. We demonstrate an implementation of this
-principle using sequence k-mer content, matched to a database of known genomes.
-We show this technique can be applied to data from an Oxford Nanopore device in
-real time and is capable of identifying the presence of a known resistant
-strain in 5 minutes, even from a complex metagenomic sample. This flexible
-approach has wide application to pathogen surveillance and may be used to
-greatly accelerate diagnoses of resistant infections.
+Surveillance of drug-resistant bacteria is essential for healthcare providers
+to deliver effective empiric antibiotic therapy. However, traditional molecular
+epidemiology does not typically occur on a timescale that could impact patient
+treatment and outcomes. Here we present a method called ‘genomic neighbor
+typing’ for inferring the phenotype of a bacterial sample by identifying its
+closest relatives in a database of genomes with metadata. We show that this
+technique can infer antibiotic susceptibility and resistance for both S.
+pneumoniae and N. gonorrhoeae. We implemented this with rapid k-mer matching,
+which, when used on Oxford Nanopore MinION data, can run in real time. This
+resulted in determination of resistance within ten minutes (sens/spec 91%/100%
+for S. pneumoniae and 81%/100% N. gonorrhoeae from isolates with
+a representative database) of sequencing starting, and for clinical metagenomic
+sputum samples (75%/100% for S. pneumoniae), within four hours of sample
+collection. This flexible approach has wide application to pathogen
+surveillance and may be used to greatly accelerate appropriate empirical
+antibiotic treatment.
 
 [![Overview of the RASE method](rase.png)](figures/Figure_1.pdf)
 
