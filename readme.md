@@ -4,10 +4,10 @@
 <!-- vim-markdown-toc GFM -->
 
 * [About](#about)
-  * [Citation](#citation)
-* [Data](#data)
-* [Code](#code)
-* [Reproducibility](#reproducibility)
+* [RASE databases](#rase-databases)
+* [Inferring resistance](#inferring-resistance)
+* [Sequencing data](#sequencing-data)
+* [Results](#results)
 * [License](#license)
 * [Contact](#contact)
 
@@ -20,10 +20,10 @@ manuscript
 *Brinda K, Callendrello A,  Ma K C,  MacFadden D R, Charalampous T,
 Lee R S, Cowley L, Wadsworth C B, Grad Y H, Kucherov G, O’Grady J, Baym M, and
 Hanage W P*: **Rapid heuristic inference of antibiotic resistance and
-susceptibility by genomic neighbor typing**.
+susceptibility by genomic neighbor typing**, 2019.
 
 <!--
-### Citation
+Citation
 
 > Brinda K, Callendrello A, Cowley L, Charalampous T, Lee R S, MacFadden D R,
 > Kucherov G, O'Grady J, Baym M, Hanage W P. **Lineage calling can identify
@@ -51,38 +51,39 @@ antibiotic treatment.
 [![Overview of the RASE method](rase.png)](figures/Figure_1.pdf)
 
 
-## Data
+## RASE databases
 
-* **Results of the RASE pipeline** for all experiments from the paper
-  (SP01-SP12) are available in the directory
-  [rase-pipeline-results](rase-pipeline-results) . The `prediction`, `plots`,
-  and `benchmarks` subdirectories contain prediction time tables, the resulting
-  plots (rank plots for `t=1m, 5m, last m` and timeline plot for each
-  experiment), and Snakemake benchmarks (time and memory used for individual
-  steps of the pipeline).
-* **Constructed RASE databases**: The databases are provided as [releases in
-  the RASE-DB repository](https://github.com/c2-d2/rase-db/releases).
-* **Tables**: Tables and supplementary tables are located in the directory
-  [tables](tables).
-* **Figures**: Figures and supplementary figures are located in the directory
-  [figures](figures).
+* [*S. pneumoniae SPARC*](https://github.com/c2-d2/rase-db-spneumoniae-sparc)
+* [*N. gonorrhoeae GISP*](https://github.com/c2-d2/rase-db-ngonorrhoeae-gisp)
+* [Skeleton for creating new databases](https://github.com/c2-d2/rase-db-skeleton)
+
+
+## Inferring resistance
+
+* [RASE](http://github.com/c2-d2/rase). Main RASE software package.
+* [RASE pipeline](http://github.com/c2-d2/rase-pipeline). RASE prediction
+  pipeline.
+
+
+## Sequencing data
+
 * **Sequencing data** are available from
   [http://doi.org/10.5281/zenodo.1405173](http://doi.org/10.5281/zenodo.1405173).
   For the metagenomic experiments, only the filtered datasets (i.e., after
   removing the remaining human reads in silico) were made publicly available.
+
+## Results
+
+* **Tables**: Tables and supplementary tables are located in the directory
+  [tables](tables).
+* **Figures**: Figures and supplementary figures are located in the directory
+  [figures](figures).
 * **Lab notebooks** (sequencing of isolates (SP01-SP06) and additional MIC
   testing) are available from the directory [lab-notebooks](lab-notebooks).
 
 
-## Code
-
-* [RASE-DB](http://github.com/c2-d2/rase-db). Code for constructing RASE
-  databases.
-* [RASE-predict](http://github.com/c2-d2/rase-predict). RASE prediction
-  pipeline.
-
-
-## Reproducibility
+<!--
+Reproducibility
 
 All computational steps from the paper are fully reproducible. First, reproduce
 the [RASE computational environment](environment.md) (based on
@@ -92,6 +93,7 @@ or [create it from scratch](https://github.com/c2-d2/rase-db). Finally, you can
 reproduce the predictions using the [RASE prediction
 pipeline](https://github.com/c2-d2/rase-predict) with the [published nanopore
 reads](http://doi.org/10.5281/zenodo.1405172).
+-->
 
 
 ## License
