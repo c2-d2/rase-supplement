@@ -1,4 +1,19 @@
-# RASE - Resistance-Associated Sequence Elements
+# RASE - Supplementary materials
+
+
+<!-- vim-markdown-toc GFM -->
+
+* [About](#about)
+  * [Citation](#citation)
+* [Data](#data)
+* [Code](#code)
+* [Reproducibility](#reproducibility)
+* [License](#license)
+* [Contact](#contact)
+
+<!-- vim-markdown-toc -->
+
+## About
 
 This repository contains data, code, and supplementary information for the
 manuscript
@@ -16,9 +31,7 @@ susceptibility by genomic neighbor typing**.
 > doi:[10.1101/403204](https://doi.org/10.1101/403204)
 -->
 
-## Abstract
-
-Surveillance of drug-resistant bacteria is essential for healthcare providers
+> Surveillance of drug-resistant bacteria is essential for healthcare providers
 to deliver effective empiric antibiotic therapy. However, traditional molecular
 epidemiology does not typically occur on a timescale that could impact patient
 treatment and outcomes. Here we present a method called ‘genomic neighbor
@@ -69,13 +82,6 @@ antibiotic treatment.
   pipeline.
 
 
-## Other links
-
-* [ProPhyle](http://prophyle.github.io). DNA sequence classifier used by RASE.
-* [Prophex](http://github.com/prophyle/prophex). k-mer index based on the
-  Burrows-Wheeler Transform, used by ProPhyle.
-
-
 ## Reproducibility
 
 All computational steps from the paper are fully reproducible. First, reproduce
@@ -85,7 +91,7 @@ the [RASE computational environment](environment.md) (based on
 or [create it from scratch](https://github.com/c2-d2/rase-db). Finally, you can
 reproduce the predictions using the [RASE prediction
 pipeline](https://github.com/c2-d2/rase-predict) with the [published nanopore
-reads](https://zenodo.org/record/1405173).
+reads](http://doi.org/10.5281/zenodo.1405172).
 
 
 ## License
