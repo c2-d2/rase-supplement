@@ -4,8 +4,8 @@
 <!-- vim-markdown-toc GFM -->
 
 * [About](#about)
+* [RASE software](#rase-software)
 * [RASE databases](#rase-databases)
-* [Inferring resistance](#inferring-resistance)
 * [Sequencing data](#sequencing-data)
 * [Results](#results)
 * [License](#license)
@@ -17,9 +17,9 @@
 
 This repository contains data, code, and supplementary information for the
 manuscript
-*Brinda K, Callendrello A,  Ma K C,  MacFadden D R, Charalampous T,
-Lee R S, Cowley L, Wadsworth C B, Grad Y H, Kucherov G, O’Grady J, Baym M, and
-Hanage W P*: **Rapid heuristic inference of antibiotic resistance and
+*Brinda K, Callendrello A,  Ma KC,  MacFadden DR, Charalampous T,
+Lee RS, Cowley L, Wadsworth CB, Grad YH, Kucherov G, O’Grady J, Baym M, and
+Hanage WP*: **Rapid heuristic inference of antibiotic resistance and
 susceptibility by genomic neighbor typing**, 2019.
 
 <!--
@@ -32,37 +32,37 @@ Citation
 -->
 
 > Surveillance of drug-resistant bacteria is essential for healthcare providers
-to deliver effective empiric antibiotic therapy. However, traditional molecular
-epidemiology does not typically occur on a timescale that could impact patient
-treatment and outcomes. Here we present a method called ‘genomic neighbor
-typing’ for inferring the phenotype of a bacterial sample by identifying its
-closest relatives in a database of genomes with metadata. We show that this
-technique can infer antibiotic susceptibility and resistance for both S.
-pneumoniae and N. gonorrhoeae. We implemented this with rapid k-mer matching,
-which, when used on Oxford Nanopore MinION data, can run in real time. This
-resulted in determination of resistance within ten minutes (sens/spec 91%/100%
-for S. pneumoniae and 81%/100% N. gonorrhoeae from isolates with
-a representative database) of sequencing starting, and for clinical metagenomic
-sputum samples (75%/100% for S. pneumoniae), within four hours of sample
-collection. This flexible approach has wide application to pathogen
-surveillance and may be used to greatly accelerate appropriate empirical
-antibiotic treatment.
+  to deliver effective empiric antibiotic therapy. However, traditional
+  molecular epidemiology does not typically occur on a timescale that could
+  impact patient treatment and outcomes. Here we present a method called
+  ‘genomic neighbor typing’ for inferring the phenotype of a bacterial sample
+  by identifying its closest relatives in a database of genomes with metadata.
+  We show that this technique can infer antibiotic susceptibility and
+  resistance for both *S. pneumoniae* and *N. gonorrhoeae*. We implemented this
+  with rapid *k*-mer matching, which, when used on Oxford Nanopore MinION data,
+  can run in real time. This resulted in determination of resistance within ten
+  minutes (sens/spec 91%/100% for *S. pneumoniae* and 81%/100% for *N.
+  gonorrhoeae* from isolates with a representative database) of sequencing
+  starting, and for clinical metagenomic sputum samples (75%/100% for *S.
+  pneumoniae*), within four hours of sample collection. This flexible approach
+  has wide application to pathogen surveillance and may be used to greatly
+  accelerate appropriate empirical antibiotic treatment.
 
 [![Overview of the RASE method](rase.png)](figures/Figure_1.pdf)
+
+
+## RASE software
+
+* [RASE pipeline](http://github.com/c2-d2/rase-pipeline). RASE pipeline.
+* [RASE](http://github.com/c2-d2/rase). Main RASE software package.
+* [Skeleton for creating novel
+  databases](https://github.com/c2-d2/rase-db-skeleton)
 
 
 ## RASE databases
 
 * [*S. pneumoniae SPARC*](https://github.com/c2-d2/rase-db-spneumoniae-sparc)
 * [*N. gonorrhoeae GISP*](https://github.com/c2-d2/rase-db-ngonorrhoeae-gisp)
-* [Skeleton for creating new databases](https://github.com/c2-d2/rase-db-skeleton)
-
-
-## Inferring resistance
-
-* [RASE](http://github.com/c2-d2/rase). Main RASE software package.
-* [RASE pipeline](http://github.com/c2-d2/rase-pipeline). RASE prediction
-  pipeline.
 
 
 ## Sequencing data
