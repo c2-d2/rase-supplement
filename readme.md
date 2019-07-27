@@ -61,8 +61,8 @@ Citation
 
 ## RASE databases
 
-* [*S. pneumoniae SPARC*](https://github.com/c2-d2/rase-db-spneumoniae-sparc) ([releases](https://github.com/c2-d2/rase-db-spneumoniae-sparc/releases))
-* [*N. gonorrhoeae GISP*](https://github.com/c2-d2/rase-db-ngonorrhoeae-gisp) ([releases](https://github.com/c2-d2/rase-db-ngonorrhoeae-gisp/releases))
+* [*S. pneumoniae* SPARC](https://github.com/c2-d2/rase-db-spneumoniae-sparc) ([releases](https://github.com/c2-d2/rase-db-spneumoniae-sparc/releases))
+* [*N. gonorrhoeae* GISP](https://github.com/c2-d2/rase-db-ngonorrhoeae-gisp) ([releases](https://github.com/c2-d2/rase-db-ngonorrhoeae-gisp/releases))
 
 
 ## Sequencing data
