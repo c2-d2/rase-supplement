@@ -54,15 +54,15 @@ Citation
 ## RASE software
 
 * [RASE pipeline](http://github.com/c2-d2/rase-pipeline). RASE pipeline.
-* [RASE](http://github.com/c2-d2/rase). Main RASE software package.
-* [Skeleton for creating novel
-  databases](https://github.com/c2-d2/rase-db-skeleton)
+* [RASE](http://github.com/c2-d2/rase). Core RASE software package.
+* [RASE DB skeleton](https://github.com/c2-d2/rase-db-skeleton). Skeleton for
+  creating novel databases.
 
 
 ## RASE databases
 
-* [*S. pneumoniae SPARC*](https://github.com/c2-d2/rase-db-spneumoniae-sparc)
-* [*N. gonorrhoeae GISP*](https://github.com/c2-d2/rase-db-ngonorrhoeae-gisp)
+* [*S. pneumoniae SPARC*](https://github.com/c2-d2/rase-db-spneumoniae-sparc) ([releases](https://github.com/c2-d2/rase-db-spneumoniae-sparc/releases))
+* [*N. gonorrhoeae GISP*](https://github.com/c2-d2/rase-db-ngonorrhoeae-gisp) ([releases](https://github.com/c2-d2/rase-db-ngonorrhoeae-gisp/releases))
 
 
 ## Sequencing data
