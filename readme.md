@@ -74,12 +74,11 @@ Citation
 
 ## Results
 
-* **Tables**: Tables and supplementary tables are located in the directory
-  [tables](tables).
-* **Figures**: Figures and supplementary figures are located in the directory
-  [figures](figures).
+* **Results**: The outputs of the RASE pipeline for individual experiments from the paper are located in [results/](results).
+* **Tables**: Tables and supplementary tables are located in [tables/](tables).
+* **Figures**: Figures and supplementary figures are located in [figures/](figures).
 * **Lab notebooks** (sequencing of isolates (SP01-SP06) and additional MIC
-  testing) are available from the directory [lab-notebooks](lab-notebooks).
+  testing) are available from [lab-notebooks/](lab-notebooks).
 
 
 <!--
