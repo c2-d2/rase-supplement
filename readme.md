@@ -17,19 +17,11 @@
 
 This repository contains data, code, and supplementary information for the
 manuscript
-*Brinda K, Callendrello A,  Ma KC,  MacFadden DR, Charalampous T,
-Lee RS, Cowley L, Wadsworth CB, Grad YH, Kucherov G, O’Grady J, Baym M, and
-Hanage WP*: **Rapid heuristic inference of antibiotic resistance and
-susceptibility by genomic neighbor typing**, 2019.
 
-<!--
-Citation
-
-> Brinda K, Callendrello A, Cowley L, Charalampous T, Lee R S, MacFadden D R,
-> Kucherov G, O'Grady J, Baym M, Hanage W P. **Lineage calling can identify
-> antibiotic resistant clones within minutes.** bioRxiv 403204, 2018.
-> doi:[10.1101/403204](https://doi.org/10.1101/403204)
--->
+> Brinda K, Callendrello A,  Ma KC,  MacFadden DR, Charalampous T,
+>  Lee RS, Cowley L, Wadsworth CB, Grad YH, Kucherov G, O’Grady J, Baym M, and
+> Hanage WP: [**Rapid heuristic inference of antibiotic resistance and susceptibility by genomic neighbor typing**](https://www.biorxiv.org/content/10.1101/403204v2),
+> bioRxiv 403204, 2019. doi: https://doi.org/10.1101/403204
 
 > Surveillance of drug-resistant bacteria is essential for healthcare providers
   to deliver effective empiric antibiotic therapy. However, traditional
