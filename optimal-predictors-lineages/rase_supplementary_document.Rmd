@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
                echo=FALSE,
                warning=FALSE,
                message=FALSE,
-               cache=FALSE,
+               cache=TRUE,
                results=FALSE)
 ```
 
@@ -116,7 +116,7 @@ $C_{(1,\ldots,1)}$ always assigns 'R', and
 $C_{(1,0,\ldots,0)}$ always assigns 'R' for the first lineage and 'S' for the other ones.
 
 With the knowledge of the probabilities of resistance ($r_1, \ldots, r_g$)
-within individual lineages $1,\ldots,g$, 
+within individual lineages $1,\ldots,g$,
 we can express false positive rate (FPR)
 and true positive rate (TPR)
 as a function of the classifier parameters ($R_1, \ldots, R_g$).
