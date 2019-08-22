@@ -209,7 +209,7 @@ to sorting lineages by $r_i$.
 par(mfrow = c(1, 2), mai = c(0.7, 0.8, 0.3, 0.02))
 par(ps = 12, cex = 0.8, cex.main = 1)
 par(mgp = c(2, 1, 0))
-plot.roc(df.pneumo, main="ROC - S. pneumoniae", all.ants = all.ants, norm = 1, ylab = NA)
+plot.roc(df.pneumo, main="ROC - S. pneumoniae", all.ants = all.ants, norm = 1)
 plot.auc(df.pneumo, main="AUC - S. pneumoniae", all.ants = all.ants, norm = 1, annotate = F)
 ```
 
@@ -218,7 +218,7 @@ plot.auc(df.pneumo, main="AUC - S. pneumoniae", all.ants = all.ants, norm = 1, a
 par(mfrow = c(1, 2), mai = c(0.7, 0.8, 0.3, 0.02))
 par(ps = 12, cex = 0.8, cex.main = 1)
 par(mgp = c(2, 1, 0))
-plot.roc(df.gono, main = "ROC - N. gonorrhoeae", all.ants = all.ants, norm = 1, ylab = NA)
+plot.roc(df.gono, main = "ROC - N. gonorrhoeae", all.ants = all.ants, norm = 1)
 plot.auc(df.gono, main = "AUC - N. gonorrhoeae", all.ants = all.ants, norm = 1, annotate = F)
 ```
 
