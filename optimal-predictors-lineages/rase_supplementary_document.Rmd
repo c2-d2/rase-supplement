@@ -1,7 +1,7 @@
 ---
 title: "Quantification of the association of bacterial clones with antibiotic resistance"
 subtitle: "Supplementary Document 1 for 'Rapid heuristic inference of antibiotic resistance by genomic neighbor typing'"
-author: "Karel Břinda, Alanna Callendrello, Kevin C. Ma, Derek R MacFadden, Themoula Charalampous, Robyn S Lee, Lauren Cowley, Crista B Wadsworth, Yonatan H Grad, Gregory Kucherov, Justin O’Grady, Michael Baym, and William P Hanage"
+author: "Karel Břinda, Alanna Callendrello, Kevin C Ma, Derek R MacFadden, Themoula Charalampous, Robyn S Lee, Lauren Cowley, Crista B Wadsworth, Yonatan H Grad, Gregory Kucherov, Justin O’Grady, Michael Baym, and William P Hanage"
 header-includes:
    - \usepackage{bbm}
 output:
@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
                fig.width=4.5,
                fig.height=4.5,
                fig.align='center',
-               fig.pos='ht!')
+               fig.pos='t!')
 
 knitr::opts_chunk$set(
                echo=FALSE,
@@ -52,96 +52,76 @@ all.ants = sort(unique(c(get.ants(df.pneumo), get.ants(df.gono))))
 # Introduction
 
 In this document, we show how to quantify the association of bacterial clones
-with antibiotic resistance, within and across species. For individual
-bacterial populations, we construct optimal predictors of resistance from
-lineages and calculate the associated Areas under the Curve (AUC).
+with antibiotic resistance. For a given
+bacterial species and all antibiotics of interest,
+we construct optimal predictors of resistance from lineages and
+calculate the associated Receiver Operating Characteristics (ROC)
+curve and its Areas under the Curve (AUC).
+Comparing the resulting curves and areas among antibiotics helps
+to understand the different levels of associations.
 
-We use this framework to show that for the pathogens *S. pneumoniae* and
-*N. gonorrhoeae* antibiotic resistance is highly associated with the population
+We use this framework to show that for the pathogens *Streptococcus pneumoniae* and
+*Neisseria gonorrhoeae* antibiotic resistance is highly associated with the population
 structure. This provides evidence of the suitability of genomic neighbor
 typing as a diagnostic method for these pathogens.
 
 
 # Optimal lineage-to-resistance classifiers
 
-We use the following assumptions and notation. Let us have a bacterial species
-and assume that it has $g$ equally probable lineages.
-Assume that we have $N$ isolates ($N\gg g$) for which we want
+## Model
+
+Let us have a bacterial species and assume that it has $g$ lineages.
+For the purpose of this document, lineages are arbitrary classes of equivalance;
+they can be defined based on sequence typing
+(e.g., MLST `r citep("10.1146/annurev.micro.59.030804.121325")`)
+or clustering (e.g., using BAPS `r citep("10.1093/molbev/mst028")` or PopPUNK `r citep("10.1101/gr.241455.118")`).
+Assume that lineages are equally probable; i.e., a randomly drawn isolate $x$
+comes from every lineage $i$ with the probability $\frac{1}{g}$.
+Assume that for every isolate $x$, we can always correctly determine its lineage $\ell(x)$.
+In a clinical setting, this would mean that we can always
+determine isolate's MLST sequence type.
+
+Let us consider an antibiotic and assume that every isolate is
+either resistant or susceptible to this antibiotic.
+Assume that resistance within a lineage $i$ is
+iid with the Bernoulli distribution and let $r_i$
+denote the probability of resistance. The constants $r_i$
+can be determined based on epidemiological data or as proportions
+of resistance isolates in individual lineages from population-level
+studies.
+
+<!--
+Assume that we have a large number of isolates ($N\gg g$) for which we want to
 determine resistance.
-Assume that every isolate belongs to exactly one lineage and
-we that for an isolate we can always correctly determine that lineage (denoted as $lineage(isolate)$).
-For every antibiotic, let us assume that each isolate is
-either resistant or susceptible, and the resistance phenotype within a lineage
-$i$ is iid with Bernoulli distribution, i.e., 
-an isolate of the lineage $i$ is 'S' or 'R' with a probability $r_i$.
+-->
 
-```{r chull1, out.width="70%", fig.cap = "ROC of a classifier for 1 lineage."}
-#source("plot-roc-chull.R")
-```
+## Lineage-to-resistance classifiers
 
-In order to mathematically quantify the association of resistance to the lineages,
-we construct memoryless probabilistic resistance classifiers of the form
+For a given species, an antibiotic and fixed probabilities of resistance within
+lineages $r_1, \ldots, r_g$,
+we construct memoryless probabilistic resistance classifiers $C$ of the form
 \[
-    C(lineage(sample))\to\{\text{'S'},\text{'R'}\}.
+    C(\ell(x))\to\{\text{'S'},\text{'R'}\}.
 \]
-In other words, such a classifier predicts resistance only based on the knowledge
-of the lineage of the sample.
+In other words, for an isolate we identify its lineage and
+the classifier predicts resistance based on the knowledge
+of the lineage.
 
-Such classifiers can be parametrized as $C_{R_1,\ldots,R_g}$,
-where $R_i\in[0, 1]$ is the probability that resistance will be reported if the sample
-belongs to the lineage $i$.
-For instance,
-the classifier $C_{0,\ldots,0}$ always assigns 'S',
-$C_{\frac{1}{2},\ldots,\frac{1}{2}}$ assigns resistance like a fair coin,
-and $C_{1,\ldots,1}$ always assigns 'R'.
+Such classifiers can be parametrized as $C_{(R_1,\ldots,R_g)}$,
+where $R_i\in[0, 1]$ is the probability of reporting resistance
+given the sample has been indentified as to belong to the lineage $i$.
+For instance, the classifier $C_{(0,\ldots,0)}$ always assigns 'S',
+$C_{(\frac{1}{2},\ldots,\frac{1}{2})}$ assigns 'R' and 'S' like a fair coin,
+$C_{(1,\ldots,1)}$ always assigns 'R', and
+$C_{(1,0,\ldots,0)}$ always assigns 'R' for the first lineage and 'S' for the other ones.
 
-For every classifier $C_{R_1,\ldots,R_g}$, we can find an explicit formula for false positive rates (FPRs)
-and true positive rates (TPRs). Let us use the standard notation:
-\[
-  FPR = \frac{FP}{FP+TN}
-  \qquad \text{and} \qquad
-  TPR = \frac{TP}{TP+FN}
-\]
+With the knowledge of the probabilities of resistance ($r_1, \ldots, r_g$)
+within individual lineages $1,\ldots,g$, 
+we can express false positive rate (FPR)
+and true positive rate (TPR)
+as a function of the classifier parameters ($R_1, \ldots, R_g$).
 
-where
-\begin{align*}
-  TP &= \text{\#true positives, i.e., resistant isolates predicted as resistant} \\
-  FP &= \text{\#false positives, i.e., susceptible isolates predicted as resistant} \\
-  FN &= \text{\#false negatives, i.e., resistant isolates predicted as susceptible} \\
-  TN &= \text{\#true negatives, i.e., susceptible isolates predicted as susceptible}
-\end{align*}
-Given our assumptions, we can estimate the performance of a classifier $C_{R_1,\ldots,R_g}$ as
-\[
-\begin{array}{ll}
-TP \approx \frac{N}{g}\sum_{i=1}^g r_iR_i     \qquad &  FP \approx \frac{N}{g}\sum_{i=1}^g (1-r_i)R_i\\
-FN \approx \frac{N}{g}\sum_{i=1}^g r_i(1-R_i) \qquad &  TN \approx \frac{N}{g}\sum_{i=1}^g (1-r_i)(1-R_i)
-\end{array}
-\]
-where $N$ denotes the number of samples tested, which provides the following estimates:
-\[
-FPR \approx \frac{\sum_{i=1}^g (1-r_i)R_i}{\sum_{i=1}^g (1-r_i)}\\
-\qquad \text{and} \qquad
-TPR \approx \frac{\sum_{i=1}^g r_iR_i}{\sum_{i=1}^g r_i}
-\]
-
-Using these formulae, we can map every classifiers $C_{R_1,\ldots,R_g}$
-to the ROC space by
-\[
-  f(R_1, \ldots, R_g) \to \left(
-    \frac{\sum_{i=1}^g (1-r_i)R_i}{\sum_{i=1}^g (1-r_i)},
-    \frac{\sum_{i=1}^g r_iR_i}{\sum_{i=1}^g r_i}
-  \right)
-\]
-It is easy to see that the map $f$ is linear.
-
-Now let us observe that the set of all possible classifiers forms
-a cube $[0,1]^g$ in the parameter space
-$\mathbb{R}^g$. Since the map $f$ is linear and the cube is convex, its
-image in the ROC space must be convex too; an example is provided
-in Figure \ref{fig:chull}. Moreover, the image of the cube is equal to the
-convex hull of the images of individual cube vertices (red points in Figure \ref{fig:chull}).
-
-```{r chull, fig.width=4, fig.height=4, out.width="40%", fig.cap = "An illustration of the ROC diagram for a species with 4 lineages and a fixed antibiotic. The grey area corresponds to all the possible lineage-to-resistance classifiers $C_{R_1,R_2,R_3,R_4}$ while the red points are the classifiers with integer parameters, i.e., $R_i\\in\\{0,1\\}$ for every $i\\in\\{1,\\ldots,g\\}$. The optimal classifiers that maximize the AUC lie on the piece-wise linear red curve."}
+```{r chull, fig.width=4, fig.height=4, out.width="40%", fig.cap = "An illustration of the ROC diagram for a species with 4 lineages and some antibiotic. The grey area corresponds to all the possible lineage-to-resistance classifiers $C_{(R_1,R_2,R_3,R_4)}$ while the red points are the classifiers with integer parameters; i.e., $R_i\\in\\{0,1\\}$ for every $i\\in\\{1,\\ldots,g\\}$. The optimal classifiers that maximize the AUC lie on the piece-wise linear red curve."}
 source("example-roc-chull.R")
 par(mfrow = c(1, 1), mai = c(0.7, 0.8, 0.3, 0.02))
 par(ps = 12, cex = 0.8, cex.main = 1)
@@ -152,15 +132,63 @@ example.roc.chull(lineages = 4,
   main = "ROC curve for a species with 4 lineages")
 ```
 
+
+
+Let us use the standard notation:
+\[
+  \mathrm{FPR} = \frac{\mathrm{FP}}{\mathrm{FP}+\mathrm{TN}}
+  \qquad \text{and} \qquad
+  \mathrm{TPR} = \frac{\mathrm{TP}}{\mathrm{TP}+\mathrm{FN}}
+\]
+
+where
+\begin{align*}
+  \mathrm{TP} &= \text{\#true positives; i.e., resistant isolates predicted as resistant} \\
+  \mathrm{FP} &= \text{\#false positives; i.e., susceptible isolates predicted as resistant} \\
+  \mathrm{FN} &= \text{\#false negatives; i.e., resistant isolates predicted as susceptible} \\
+  \mathrm{TN} &= \text{\#true negatives; i.e., susceptible isolates predicted as susceptible}
+\end{align*}
+Given our assumptions, we can estimate the performance of a classifier $C_{R_1,\ldots,R_g}$ as
+\[
+\begin{array}{ll}
+\mathrm{TP} \approx \frac{N}{g}\sum_{i=1}^g r_iR_i     \qquad &  \mathrm{FP} \approx \frac{N}{g}\sum_{i=1}^g (1-r_i)R_i\\
+\mathrm{FN} \approx \frac{N}{g}\sum_{i=1}^g r_i(1-R_i) \qquad &  \mathrm{TN} \approx \frac{N}{g}\sum_{i=1}^g (1-r_i)(1-R_i)
+\end{array}
+\]
+where $N$ is the number of samples tested.
+
+We obtain the following estimates:
+\[
+\mathrm{FPR} \approx \frac{\sum_{i=1}^g (1-r_i)R_i}{\sum_{i=1}^g (1-r_i)}\\
+\qquad \text{and} \qquad
+\mathrm{TPR} \approx \frac{\sum_{i=1}^g r_iR_i}{\sum_{i=1}^g r_i}
+\]
+
+Using these formulae, we can map every classifiers $C_{(R_1,\ldots,R_g)}$
+to the ROC space by
+\[
+  f(R_1, \ldots, R_g) \to \left(
+    \frac{\sum_{i=1}^g (1-r_i)R_i}{\sum_{i=1}^g (1-r_i)},
+    \frac{\sum_{i=1}^g r_iR_i}{\sum_{i=1}^g r_i}
+  \right)
+\]
+
+It is easy to see that the map $f$ is linear. Since the set of all possible classifiers is
+the cube $[0,1]^g$ in the parameter space, it is convex and its
+image in the ROC space must be convex too; an example is provided
+in Figure \ref{fig:chull}. Moreover, the image of the cube is equal to the
+convex hull of the images of individual cube vertices (red points in Figure \ref{fig:chull}).
+
+
 Our aim now is to find the optimal ROC curve maximizing the AUC (the red curve in Figure \ref{fig:chull}).
 Even though the curve corresponds to infinitely
-many classifiers, it is a piece-wise linear function fully defined
-by $g+1$ classifiers $C^{(0)}, \ldots, C^{(g)}$ lying on the line intersections.
+many classifiers, it is a piece-wise linear function which is fully defined
+by the $g+1$ ``vertex'' classifiers $C^{(0)}, \ldots, C^{(g)}$ lying on the line intersections.
 Enumerating this classifier sequence corresponds to
-putting lineages to the order in which they will
-be switched from susceptible to resistant (i.e., $R_i=0\to R_i=1$).
+putting lineages to the order in which they are
+switched from susceptible to resistant (i.e., $R_i=0\to R_i=1$) along the red line.
 The first classifier $C^{(0)}$, $(0,0)$ in the ROC diagram, corresponds to all
-lineages being marked as susceptible, whereas the last classifier, $C^{(g)}$, $(1,1)$
+lineages being marked as susceptible, while the last classifier, $C^{(g)}$, $(1,1)$
 in the diagram to all lineages being predicted marked as resistant.
 
 The optimal ROC curve can be computed in multiple different ways.
@@ -168,10 +196,12 @@ For instance, we can enumerate all cube vertices in the parameter space,
 map them to the ROC space, compute the convex hull, and extract its upper part.
 More efficiently, we can construct the classifier sequence directly in the ROC
 diagram by the following iterative process.
-We start at $(0,0)$, i.e., with all lineages marked as susceptible, and at every step
+We start at $(0,0)$; i.e., with all lineages marked as susceptible, and at every step
 we switch one susceptible lineage to resistant so that
 the corresponding step in the ROC graph has maximal possible slope, and
 we continue until all lineages are marked as resistant.
+If lineages are equally probable, it is easy to see that this order corresponds
+to sorting lineages by $r_i$.
 
 
 ```{r pneumo, fig.width=8, fig.height=4, out.width="80%", fig.cap = "\\emph{S. pneumoniae} ROC curves and the corresponding AUCs for ceftriaxone (cro), erythromycin (ery), penicillin (pen), trimethoprim (sxt), and tetracycline (tet)."}
