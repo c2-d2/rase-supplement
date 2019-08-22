@@ -9,6 +9,7 @@ NAME=rase_supplementary_document
 all: $(NAME).pdf
 
 %.pdf: %.Rmd $(wildcard *.R)
+	$(MAKE) clean
 	R -e "rmarkdown::render('$<',output_file='$@')"
 
 help: ## Print help message
@@ -18,6 +19,7 @@ view:
 	open $(NAME).pdf
 
 clean: ## Clean
+	rm -fR $(NAME)*/
 
 cleanall: clean ## Clean all
 	rm -f $(NAME).pdf *.bib
