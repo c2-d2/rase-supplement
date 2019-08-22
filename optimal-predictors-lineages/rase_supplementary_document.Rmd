@@ -8,6 +8,7 @@ output:
   pdf_document:
     fig_caption: yes
     number_sections: TRUE
+    keep_tex: TRUE
 bibliography: "references.bib"
 #date: "January 17, 2018"
 ---
