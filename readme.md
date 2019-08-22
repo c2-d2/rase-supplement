@@ -76,7 +76,7 @@ manuscript
 
 ## Optimal predictors of resistance from lineages
 
-See the [Supplementary Document](optimal-predictors-lineages/rase_supplementary_document.pdf). All code and data are located in [optimal-predictors-lineages/](optimal-predictors-lineages/).
+For information on quantification of the association of bacterial clones with antibiotic resistance using optimal lineage-to-resistance predictors, see the [Supplementary Document 1](optimal-predictors-lineages/rase_supplementary_document.pdf). All code and data are located in [optimal-predictors-lineages/](optimal-predictors-lineages/).
 <!--
 Reproducibility
 
