@@ -121,17 +121,17 @@ we can express false positive rate (FPR)
 and true positive rate (TPR)
 as a function of the classifier parameters ($R_1, \ldots, R_g$).
 
-```{r chull, fig.width=4, fig.height=4, out.width="40%", fig.cap = "An illustration of the ROC diagram for a species with 4 lineages and some antibiotic. The grey area corresponds to all the possible lineage-to-resistance classifiers $C_{(R_1,R_2,R_3,R_4)}$ while the red points are the classifiers with integer parameters; i.e., $R_i\\in\\{0,1\\}$ for every $i\\in\\{1,\\ldots,g\\}$. The optimal classifiers that maximize the AUC lie on the piece-wise linear red curve."}
+```{r chull, fig.width=4, fig.height=4, out.width="40%", fig.cap = "An illustration of the ROC diagram for a species with 4 lineages with resistance probabilities $(r_i)_{i=1}^4=(0.1, 0.4, 0.8, 0.9)$. The grey area corresponds to all the possible lineage-to-resistance classifiers $C_{(R_1,R_2,R_3,R_4)}$ while the red points are the classifiers with integer parameters; i.e., $R_i\\in\\{0,1\\}$ for every $i\\in\\{1,\\ldots,g\\}$. RL denotes the number of lineages for which resistance is reported by the integer classifier, i.e., $\\sum_i R_i$. The optimal classifiers that maximize the AUC lie on the piece-wise linear red curve."}
 source("example-roc-chull.R")
 par(mfrow = c(1, 1), mai = c(0.7, 0.8, 0.3, 0.02))
 par(ps = 12, cex = 0.8, cex.main = 1)
 #par(mgp=c(2,1,0))
 #plot.roc.chull(lineages=1, main="1 lineage")
 example.roc.chull(lineages = 4,
+  p.vec=c(0.1, 0.4, 0.8, 0.9),
   seed = 5,
   main = "ROC curve for a species with 4 lineages")
 ```
-
 
 
 Let us use the standard notation:
@@ -155,16 +155,14 @@ Given our assumptions, we can estimate the performance of a classifier $C_{R_1,\
 \mathrm{FN} \approx \frac{N}{g}\sum_{i=1}^g r_i(1-R_i) \qquad &  \mathrm{TN} \approx \frac{N}{g}\sum_{i=1}^g (1-r_i)(1-R_i)
 \end{array}
 \]
-where $N$ is the number of samples tested.
-
-We obtain the following estimates:
+where $N$ is the number of samples tested. We then obtain the following estimates:
 \[
 \mathrm{FPR} \approx \frac{\sum_{i=1}^g (1-r_i)R_i}{\sum_{i=1}^g (1-r_i)}\\
 \qquad \text{and} \qquad
 \mathrm{TPR} \approx \frac{\sum_{i=1}^g r_iR_i}{\sum_{i=1}^g r_i}
 \]
 
-Using these formulae, we can map every classifiers $C_{(R_1,\ldots,R_g)}$
+Using these formulae, we can map every classifier $C_{(R_1,\ldots,R_g)}$
 to the ROC space by
 \[
   f(R_1, \ldots, R_g) \to \left(
@@ -179,6 +177,8 @@ image in the ROC space must be convex too; an example is provided
 in Figure \ref{fig:chull}. Moreover, the image of the cube is equal to the
 convex hull of the images of individual cube vertices (red points in Figure \ref{fig:chull}).
 
+
+## Optimal ROC curves
 
 Our aim now is to find the optimal ROC curve maximizing the AUC (the red curve in Figure \ref{fig:chull}).
 Even though the curve corresponds to infinitely
