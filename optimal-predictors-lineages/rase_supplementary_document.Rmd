@@ -1,6 +1,6 @@
 ---
 title: "Quantification of the association of bacterial clones with antibiotic resistance"
-subtitle: "Supplementary Document 1 for 'Rapid heuristic inference of antibiotic resistance by genomic neighbor typing'"
+subtitle: "Supplementary Document 1 for 'Rapid heuristic inference of antibiotic resistance and susceptibility by genomic neighbor typing'"
 author: "Karel Břinda, Alanna Callendrello, Kevin C Ma, Derek R MacFadden, Themoula Charalampous, Robyn S Lee, Lauren Cowley, Crista B Wadsworth, Yonatan H Grad, Gregory Kucherov, Justin O’Grady, Michael Baym, and William P Hanage"
 header-includes:
    - \usepackage{bbm}
@@ -10,7 +10,7 @@ output:
     number_sections: TRUE
     keep_tex: TRUE
 bibliography: "references.bib"
-#date: "January 17, 2018"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
 ---
 
 ```{r, include=FALSE}
@@ -79,7 +79,7 @@ or clustering (e.g., using BAPS `r citep("10.1093/molbev/mst028")` or PopPUNK `r
 Assume that lineages are equally probable; i.e., a randomly drawn isolate $x$
 comes from every lineage $i$ with the probability $\frac{1}{g}$.
 Assume that for every isolate $x$, we can always correctly determine its lineage $\ell(x)$.
-In a clinical setting, this would mean that we can always
+In a clinical setting, this could mean that we can always
 determine isolate's MLST sequence type.
 
 Let us consider an antibiotic and assume that every isolate is
@@ -104,11 +104,11 @@ we construct memoryless probabilistic resistance classifiers $C$ of the form
 \[
     C(\ell(x))\to\{\text{'S'},\text{'R'}\}.
 \]
-In other words, for an isolate we identify its lineage and
+In other words, for every isolate we identify its lineage and
 the classifier predicts resistance based on the knowledge
 of the lineage.
 
-Such classifiers can be parametrized as $C_{(R_1,\ldots,R_g)}$,
+All such classifiers can be parametrized as $C_{(R_1,\ldots,R_g)}$,
 where $R_i\in[0, 1]$ is the probability of reporting resistance
 given the sample has been indentified as to belong to the lineage $i$.
 For instance, the classifier $C_{(0,\ldots,0)}$ always assigns 'S',
@@ -122,7 +122,7 @@ we can express false positive rate (FPR)
 and true positive rate (TPR)
 as a function of the classifier parameters ($R_1, \ldots, R_g$).
 
-```{r chull, fig.width=4, fig.height=4, out.width="40%", fig.cap = "An illustration of the ROC diagram for a species with 4 lineages with resistance probabilities $(r_i)_{i=1}^4=(0.1, 0.4, 0.8, 0.9)$. The grey area corresponds to all the possible lineage-to-resistance classifiers $C_{(R_1,R_2,R_3,R_4)}$ while the red points are the classifiers with integer parameters; i.e., $R_i\\in\\{0,1\\}$ for every $i\\in\\{1,\\ldots,g\\}$. RL denotes the number of lineages for which resistance is reported by the integer classifier, i.e., $\\sum_i R_i$. The optimal classifiers that maximize the AUC lie on the piece-wise linear red curve."}
+```{r chull, fig.width=4, fig.height=4, out.width="40%", fig.cap = "An illustration of the ROC diagram for a species with 4 lineages with resistance probabilities $(r_i)_{i=1}^4=(0.1, 0.4, 0.8, 0.9)$. The grey area corresponds to all the possible lineage-to-resistance classifiers $C_{(R_1,R_2,R_3,R_4)}$ while the red points are the ``vertex\'\' classifiers with integer parameters; i.e., $R_i\\in\\{0,1\\}$ for every $i\\in\\{1,\\ldots,g\\}$. RL denotes the number of lineages for which resistance is reported by an integer classifier, i.e., $\\sum_i R_i$. The optimal classifiers that maximize the AUC lie on the piece-wise linear red curve, which we term the optimal ROC curve."}
 source("example-roc-chull.R")
 par(mfrow = c(1, 1), mai = c(0.7, 0.8, 0.3, 0.02))
 par(ps = 12, cex = 0.8, cex.main = 1)
