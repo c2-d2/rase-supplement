@@ -8,6 +8,7 @@
 * [RASE databases](#rase-databases)
 * [Sequencing data](#sequencing-data)
 * [Results](#results)
+* [Optimal predictors of resistance from lineages](#optimal-predictors-of-resistance-from-lineages)
 * [License](#license)
 * [Contact](#contact)
 
@@ -73,6 +74,9 @@ manuscript
   testing) are available from [lab-notebooks/](lab-notebooks).
 
 
+## Optimal predictors of resistance from lineages
+
+See the [Supplementary Document](optimal-predictors-lineages/rase_supplementary_document.pdf). All code and data are located in [optimal-predictors-lineages/](optimal-predictors-lineages/).
 <!--
 Reproducibility
 
