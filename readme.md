@@ -8,6 +8,7 @@
 * [RASE databases](#rase-databases)
 * [Sequencing data](#sequencing-data)
 * [Results](#results)
+* [Optimal predictors of resistance from lineages](#optimal-predictors-of-resistance-from-lineages)
 * [License](#license)
 * [Contact](#contact)
 
@@ -73,6 +74,9 @@ manuscript
   testing) are available from [lab-notebooks/](lab-notebooks).
 
 
+## Optimal predictors of resistance from lineages
+
+For information on quantification of the association of bacterial clones with antibiotic resistance using optimal lineage-to-resistance predictors, see the [Supplementary Document 1](optimal-predictors-lineages/rase_supplementary_document.pdf). All code and data are located in [optimal-predictors-lineages/](optimal-predictors-lineages/).
 <!--
 Reproducibility
 
