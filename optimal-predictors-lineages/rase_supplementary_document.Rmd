@@ -71,8 +71,8 @@ typing as a diagnostic method for these pathogens.
 
 ## Model
 
-Let us have a bacterial species and assume that it has $g$ lineages.
-For the purpose of this document, lineages are arbitrary classes of equivalance;
+Let us consider a bacterial species and assume that it has $g$ lineages.
+For the purpose of this document, lineages are arbitrary classes of equivalence;
 they can be defined based on sequence typing
 (e.g., MLST `r citep("10.1146/annurev.micro.59.030804.121325")`)
 or clustering (e.g., using BAPS `r citep("10.1093/molbev/mst028")` or PopPUNK `r citep("10.1101/gr.241455.118")`).
@@ -110,7 +110,7 @@ of the lineage.
 
 All such classifiers can be parametrized as $C_{(R_1,\ldots,R_g)}$,
 where $R_i\in[0, 1]$ is the probability of reporting resistance
-given the sample has been indentified as to belong to the lineage $i$.
+given the sample has been identified as belong to the lineage $i$.
 For instance, the classifier $C_{(0,\ldots,0)}$ always assigns 'S',
 $C_{(\frac{1}{2},\ldots,\frac{1}{2})}$ assigns 'R' and 'S' like a fair coin,
 $C_{(1,\ldots,1)}$ always assigns 'R', and
